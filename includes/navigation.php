@@ -22,7 +22,7 @@
         while($row=mysqli_fetch_assoc($select_all_categories_query)){
             $cat_title=$row['cat_title'];
 
-            echo "<li>{$cat_title}<\li>"
+            echo "<li> <a href='#'>{$cat_title}</a></li>";
 
         }
                 ?>
