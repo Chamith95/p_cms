@@ -27,11 +27,11 @@
         }
                 ?>
 
-<!-- 
+
                     <li>
-                        <a href="#">About</a>
+                        <a href="#">Admin</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#">Services</a>
                     </li>
                     <li>
