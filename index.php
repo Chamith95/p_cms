@@ -15,6 +15,9 @@
 
             $select_all_posts_query=mysqli_query($connection,$query);
 
+            
+            $count=0;
+
             while($row=mysqli_fetch_assoc($select_all_posts_query)){
                 $post_id=$row['post_id'];
                 $post_title=$row['post_title'];
@@ -22,8 +25,12 @@
                 $post_date=$row['post_date'];
                 $post_image=$row['post_image'];
                 $post_content= substr($row['post_content'],0,50);
-    
+                $post_status=$row['post_status'];
 
+                if($post_status !=='published' && $count==0){
+                    echo "<h1 class='text-center'> NO POST SORRY </h1>";
+                }else if($post_status =='published'){
+                    $count=1;
 ?>
                 <h1 class="page-header">
                     Page Heading
@@ -46,7 +53,7 @@
 
                 <hr>
 
-         <?php }
+         <?php }}
          ?>
 
 
