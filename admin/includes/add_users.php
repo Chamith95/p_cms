@@ -32,6 +32,8 @@ if(isset($_POST['create_user'])){
 
     confirmQuery($create_user_query);
 
+    echo "User Created: "." "."<a href='users.php'>View Users</a>";
+
 
 }
 
@@ -52,8 +54,8 @@ if(isset($_POST['create_user'])){
 <div class="form-group">
     <label for="user_role">User Role</label>
         <select name="user_role" id="post_category">
-        <option value="subscriber">Subscriber </option>
-        <option value="admin">Admin</option>
+        <option value="Subscriber">Subscriber </option>
+        <option value="Admin">Admin</option>
  
         </select>
     </div>

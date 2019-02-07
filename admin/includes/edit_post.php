@@ -11,6 +11,7 @@ $select_posts_by_id=mysqli_query($connection,$query);
 
 
 while($row=mysqli_fetch_assoc($select_posts_by_id)){
+
     $post_id=$row['post_id'];
     $post_category_id=$row['post_category_id'];
     $post_title=$row['post_title'];
@@ -67,9 +68,11 @@ if(isset($_POST['update_post'])){
     $update_post=mysqli_query($connection,$query);
 
     confirmQuery($update_post);
+
+    echo "<p class='bg-success'> Post Upadated.<a href='../post.php?p_id={$the_pid}'>View Post</a> Or <a href='posts.php'>Edit More Posts</a></p>";
 }
 
-
+    
 
 
 ?>
@@ -110,9 +113,22 @@ if(isset($_POST['update_post'])){
     </div>
 
     <div class="form-group">
-        <label for="post_status">Post Status</label>
-        <input type="text" value="<?php echo $post_status; ?>" class="form-control" name="post_status">
+    <select name="post_status" id="">
+        <option value="<?php echo $post_status ?>"><?php echo $post_status ?></option>
+        <?php
+        if($post_status=='published'){
+
+            echo "<option value='draft'>draft</option>";  
+        }
+        else{
+            echo "<option value='published'>published</option>";  
+
+        }
+        
+        ?>
+    </select>
     </div>
+
 
 
     <div class="form-group">
@@ -128,8 +144,8 @@ if(isset($_POST['update_post'])){
 
     <div class="form-group">
         <label for="post_content">Post Content</label>
-        <textarea class="form-control" name="post_content" id="" cols="30" rows="10">
-    <?php echo$post_content; ?>
+        <textarea class="form-control" name="post_content" id="body" cols="30" rows="10">
+    <?php echo $post_content; ?>
     </textarea>
     </div>
 
